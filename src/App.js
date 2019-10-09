@@ -8,7 +8,7 @@ class App extends Component {
   state = { 
     termino: '',
     imagenes: [],
-    pagina: ''
+    pagina: '',
   }
 
   consultarApi = () => {
@@ -16,7 +16,6 @@ class App extends Component {
     const pagina = this.state.pagina;
 
     const url = `https://pixabay.com/api/?key=13868013-0658ade3a0477a9cff0c75d2e&q=${termino}&per_page=30&page=${pagina}`;
-    console.log(url);
 
     fetch(url)
       .then(respuesta => respuesta.json())
@@ -69,7 +68,7 @@ class App extends Component {
   }
 
   scroll = () => {
-    const elemento = document.querySelector('#resultado');
+    const elemento = document.querySelector('.jumbotron');
     elemento.scrollIntoView('auto', 'start');
   }
 
@@ -82,7 +81,7 @@ class App extends Component {
             datosBusqueda={this.datosBusqueda}
           />
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           <Resultado
             imagenes = {this.state.imagenes}
             paginaAnterior={this.paginaAnterior}
